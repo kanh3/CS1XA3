@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "./pyth/p4.py", line 1, in <module>
+    laskjd #TODOkkqe
+NameError: name 'laskjd' is not defined
+  File "./p2.py", line 1
+    This is just a test file for feature 3
+                 ^
+SyntaxError: invalid syntax
+
+hask/h3.hs:1:1:
+    Parse error: naked expression at top level
+    Perhaps you intended to use TemplateHaskell
+
+hask/h4.hs:3:1:
+    parse error (possibly incorrect indentation or mismatched brackets)
+
+hask/h2.hs:1:53:
+    Not in scope: `main'
+    Perhaps you meant `min' (imported from Prelude)
+
+test.hs:2:1:
+    parse error (possibly incorrect indentation or mismatched brackets)

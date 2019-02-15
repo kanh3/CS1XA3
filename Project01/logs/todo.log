@@ -1,0 +1,7 @@
+	print(i)#TODO append to list
+laskjd #TODOkkqe
+main = putStrLn "Good Morning!" -- #TODO add more functions
+This should be detected by both f2 and f3 -- #TODO nothing else
+         	 grep -E '#TODO' "$file" >> Project01/logs/todo.log
+#TODO add variable b and print a+b
+2.Puts each line of every file in my repo with the tag #TODO into todo.log
