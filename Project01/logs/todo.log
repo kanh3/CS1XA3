@@ -1,8 +1,18 @@
 	print(i)#TODO append to list
+./pyth/p3.py 
 laskjd #TODOkkqe
+./pyth/p4.py 
 main = putStrLn "Good Morning!" -- #TODO add more functions
+./hask/h1.hs 
 This should be detected by both f2 and f3 -- #TODO nothing else
+./hask/h3.hs 
+./Project01/logs/todo.log 
     laskjd #TODOkkqe
-         		 grep -E '#TODO' "$file" >> Project01/logs/todo.log
+./Project01/logs/compile_fail.log 
+         	grep -E '#TODO' "$file" >> Project01/logs/todo.log
+		if grep -Eq '#TODO' "$file" ; then
+./Project01/project_analyze.sh 
 #TODO add variable b and print a+b
+./Project01/p1.py 
 2. Puts each line with the tag #TODO of every file in my repo into todo.log.
+./Project01/README.md 

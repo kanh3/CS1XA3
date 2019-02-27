@@ -9,7 +9,10 @@ while [ "$feature" != 'q' ]; do
 	fi
         find . -type f -print0 | while IFS= read -d $'\0' file
        	    do
-         		 grep -E '#TODO' "$file" >> Project01/logs/todo.log
+         	grep -E '#TODO' "$file" >> Project01/logs/todo.log
+		if grep -Eq '#TODO' "$file" ; then
+		  echo "$file"\ >> Project01/logs/todo.log
+		fi
        	    done
 
 

@@ -1,6 +1,7 @@
 **FEATURES**:
 1. The script is interactive by *user prompted input*.
-2. Puts each line with the tag #TODO of every file in my repo into todo.log.
+2. Puts each line with the tag #TODO of every file in my repo into todo.log,
+followed by the filenames.
 3. Find Haskell and Python files in my repo that fail to compile and put them 
 in compile_fail.log.
 4. Find all commit hashes where merge is mentioned in the commit messages and 
