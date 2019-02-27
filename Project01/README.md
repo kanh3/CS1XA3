@@ -6,7 +6,7 @@ followed by the filenames.
 in compile_fail.log.
 4. Find all commit hashes where merge is mentioned in the commit messages and 
 put them in merge.log.
-6. Delete all untracked files ending in .tmp.
+5. Delete all untracked files ending in .tmp.
 
 
 
