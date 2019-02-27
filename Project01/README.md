@@ -7,11 +7,17 @@ in compile_fail.log.
 4. Find all commit hashes where merge is mentioned in the commit messages and 
 put them in merge.log.
 6.Delete all untracked files ending in .tmp.
+
+
+
 **CUSTOM FEATURE**:
-Count how many python files and how many files in total exist in my repo.
+*Count how many python files and how many files in total exist in my repo.
 Output is like 2 python files of 100 files found.
-Compute how much disk space python files used in total compared with my repo.
+*Compute how much disk space python files used in total compared with my repo.
 Output is like python files take up 2K of 100K space.
+
+
+
 **HOW TO USE MY SCRIPT**:
 * run script
 * follow instructions
