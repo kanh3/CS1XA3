@@ -10,23 +10,23 @@
 	- Header
 	- Content
 	    - Left column
-	            - Basic infomation
-		    - Skills
+	            * Basic infomation
+		    *  Skills
 	    - Right column
 		    - About this page
 		    - Experience
-		    	- Education
-		    	- Work
-		    	- Other
+		        - Education
+		        - Work
+		        - Other
 		    - Projects
 	- Footer
 - How it was created
     - Template: I use the scrolling nav bar template, and here is the [source](https://startbootstrap.com/templates/scrolling-nav/)
     - What I did
-            - HTML: 
+            * HTML: 
 	        - make headings and paragraphs
 	        - fill in content
-	    - CSS/Bootstrap:
+	    * CSS/Bootstrap:
 	        - change the layout by making a grid
 	        - change the color
 	        - change spacing and padding
