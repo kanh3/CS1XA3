@@ -1,18 +1,18 @@
-This project contains 2 parts:
+#This project contains 2 parts:
 1. A CV Webpage
 2. A Simple Web App
 
-About The CV Webpage:
-- What:
+##About The CV Webpage:
+What:
     - An **ugly-colorful** personal webpage.
     - Contains a navigation bar, a header, content, and a footer.
 	- Nav bar
 	- Header
 	- Contnet
-	    - Left border
+	    - Left column
 	            - Basic infomation
 		    - Skills
-	    - Right border
+	    - Right column
 		    - About this page
 		    - Experience
 		    	- Education
@@ -20,7 +20,7 @@ About The CV Webpage:
 		    	- Other
 		    - Projects
 	- Footer
-- How it was created
+How it was created
     - Template: I use the scrolling nav bar template, and here is the [source](https://startbootstrap.com/templates/scrolling-nav/)
     - What I did
             - HTML: 
@@ -43,3 +43,5 @@ About The CV Webpage:
 are the source for icons
 	    - [Here](https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css)
  is the link for Bootstrap
+	    - [Here](http://michalsnik.github.io/aos/) is the animation 
+stylesheet and javascript script
