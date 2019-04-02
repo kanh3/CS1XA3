@@ -41,7 +41,7 @@
         - [Here](https://use.fontawesome.com/releases/v5.7.0/css/all.css) and [here](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css) are the source for icons
         - [Here](https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css) is the link for Bootstrap
         - [Here](http://michalsnik.github.io/aos/) is the animation stylesheet and javascript script
-##About The Web App
+## About The Web App:
 - A tictactoe game where two players, X and O, take turns to mark a 3*3 grid. Anyone who first marks all 3 positions of a 
 horizontal, vertical, or diagonal line wins.
 - At first, X and O get to choose their own color(default is tomato). This color will be showed when they win. If it is a
