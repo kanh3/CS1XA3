@@ -1,0 +1,30 @@
+.container {
+  display: grid;
+  height: 330px;
+  width: 330px;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  background-color: black;
+  padding: 10px;
+  margin: auto;
+}
+
+.container > div {
+  width: 102px;
+  height: 62px;
+  background-color: tomato;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 50px;
+
+}
+.header {
+  text-align: center;
+}
+.text {
+  text-align: center;
+}
+.button {
+  padding: 20px;
+  text-align: center;
+}
