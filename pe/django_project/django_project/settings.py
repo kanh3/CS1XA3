@@ -125,5 +125,5 @@ STATICFILES_DIRS = [
 
     # paths to collect static files from
 ]
-STATIC_ROOT = "/home/kanh3/CS1XA3/python_env/django_project/static/"
-    # directory to store static files after colleted 
+STATIC_ROOT = "/home/kanh3/CS1XA3/pe/django_project/static/"
+    # directory to store static files after colleted
