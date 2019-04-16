@@ -15,7 +15,7 @@ class UserInfo(models.Model):
                                 primary_key=True)
 
     money = models.FloatField(default=100)
-    basket = models.ManyToManyField(Fruit)
+    basket = models.ManyToManyField('Fruit')
     info = models.CharField(max_length=30)
 
     objects = UserInfoManager()
@@ -23,4 +23,4 @@ class UserInfo(models.Model):
 class Fruit(models.Model):
     name=models.CharField(max_length=30)
     price=models.FloatField()
-    quantity=models.IntField(default=0)
+    quantity=models.IntegerField(default=0)
