@@ -16,11 +16,14 @@ def register_user(request):
     passw = json_req.get('password','')
 
     if uname != '':
-        user = User.objects.create_user(username=uname,
+	try:
+        	user = User.objects.create_user(username=uname,
                                         password=passw)
-##TODO:try &except
-        login(request,user)
-        return HttpResponse('LoggedIn')
+
+        	login(request,user)
+        	return HttpResponse('LoggedIn')
+	except:
+		return HttpResponse('UserExists')
 
     else:
         return HttpResponse('LoggedOut')
@@ -48,4 +51,4 @@ def user_info(request):
         return HttpResponse("LoggedOut")
     else:
         # do something only a logged in user can do
-        return HttpResponse("Hello " + request.user.first_name)
+        return HttpResponse("Hello " + request.user.username)
