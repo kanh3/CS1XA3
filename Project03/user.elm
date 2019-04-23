@@ -5,19 +5,18 @@ import Browser.Navigation exposing(load)
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events as Events
-import Http 
+import Http
 import Json.Decode as JDecode
 import Json.Encode as JEncode
 import String
 
 
 
---rootUrl =
-  --  "http://localhost:8000/e/kanh3/"
+rootUrl = "http://localhost:8000/e/kanh3/"
 
 
 
-rootUrl = "https://mac1xa3.ca/e/kanh3/"
+--rootUrl = "https://mac1xa3.ca/e/kanh3/"
 
 
 main =
@@ -71,22 +70,34 @@ init _ =
    -        onClick PostButton
    --------------------------------------------------------------------------------------------
 -}
-
+stylesheet = node "link" [attribute "rel" "stylesheet",
+                          href "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"]
+                          []
 
 view : Model -> Html Msg
 view model =
-    div []
-        [ div []
-            [ viewInput "text" "Name" model.username EnterName
-            , viewInput "password" "Password" model.password EnterPassword
+    div [ class "container text-center bg-light pt-5 mt-5" ]
+        [ stylesheet
+        , br [] []
+        , h2 [] [ text "Please sign in or register"]
+        , br [] []
+        , div [ class "text-center rounded"]
+            [
+             viewInput "text" "UserName" model.username EnterName
             ]
-        , div []
-            [ text <| "Hello username is " ++ model.username ++ " and password" ++  model.password
-            , button [ Events.onClick RegisterUser ] [ text "Register" ]
-            , button [ Events.onClick LoginUser ] [ text "Login" ]
+        , div [class ""]
+            [
+             viewInput "password" "Password" model.password EnterPassword
             ]
-        , div [] [ text model.error ]
+        , br [] []
+        , div [class " text-center "]
+            [ button [ Events.onClick RegisterUser, class "btn btn-outline-primary px-md-4"] [ text "Register" ]
+            , button [ Events.onClick LoginUser, class "btn btn-outline-primary px-md-4"] [ text "Login" ]
+            ]
+        , br [] []
+        , div [class "alert alert-primary"] [ text model.error ]
         ]
+
 
 viewInput : String -> String -> String -> (String -> Msg) -> Html Msg
 viewInput t p v toMsg =
@@ -152,8 +163,12 @@ update msg model =
             case result of
                 Ok "UserExists" ->
                     ( {model|error="user already exists"}, Cmd.none )
+
+                Ok "LoggedOut" ->
+                    ( {model|error=""}, Cmd.none)
+                    
                 Ok _ ->
-                    ( model, load (rootUrl ++ "static/userinfo.html") )
+                    ( model, load ("http://localhost:8001/src/restpage.elm") )
 
                 Err error ->
                     ( handleError model error, Cmd.none )
@@ -161,10 +176,10 @@ update msg model =
         GotLoginResponse result ->
             case result of
                 Ok "LoginFailed" ->
-                    ( { model | error = "failed to login" }, Cmd.none )
+                    ( { model | error = "incorrect username or password" }, Cmd.none )
 
                 Ok _ ->
-                    ( model, load (rootUrl ++ "static/userinfo.html") )
+                    ( model, load ("http://localhost:8001/src/restpage.elm") )
 
                 Err error ->
                     ( handleError model error, Cmd.none )
@@ -175,7 +190,7 @@ update msg model =
         LoginUser ->
             ( model, loginUser model )
 
-
+--TODO:change url
 
 -- put error message in model.error_response (rendered in view)
 
