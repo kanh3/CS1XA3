@@ -24,7 +24,7 @@ class UserInfo1Manager(models.Manager):
         banana.save()
         pineapple=userinfo.basket.get(name='pineapple')
         pineapple.price=p2
-        pineapple.quantity=q1
+        pineapple.quantity=q2
         pineapple.save()
         userinfo.save()
 

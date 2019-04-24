@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     path('register/', views.register_user , name = 'p3app-register_user') ,
     path('login/', views.login_user , name = 'p3app-login_user') ,
+    path('logout/', views.logout_user, name = 'p3app-logout_user'),
     path('userinfo/', views.user_info , name = 'p3app-user_info') ,
     path('resume/', views.resume_game, name='p3app-resume_game'),
     path('new/', views.new_game, name='p3app-new_game'),

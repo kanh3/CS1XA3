@@ -12,11 +12,11 @@ import String
 
 
 
-rootUrl = "http://localhost:8000/e/kanh3/"
+--rootUrl = "http://localhost:8000/e/kanh3/"
 
 
 
---rootUrl = "https://mac1xa3.ca/e/kanh3/"
+rootUrl = "https://mac1xa3.ca/e/kanh3/"
 
 
 main =
@@ -58,18 +58,6 @@ init _ =
     )
 
 
-
-{- -------------------------------------------------------------------------------------------
-   - View
-   -   Model Attributes Used:
-   -        model.get_response
-   -        model.post_response
-   -        model.error_repsonse
-   -   Messages Used:
-   -        onClick GetButton
-   -        onClick PostButton
-   --------------------------------------------------------------------------------------------
--}
 stylesheet = node "link" [attribute "rel" "stylesheet",
                           href "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"]
                           []
@@ -103,14 +91,8 @@ viewInput : String -> String -> String -> (String -> Msg) -> Html Msg
 viewInput t p v toMsg =
     input [ type_ t, placeholder p, Events.onInput toMsg ] []
 
-{- -------------------------------------------------------------------------------------------
-   - JSON Encode/Decode
-   -   modelEncoder turns a model into a JSON value that can be used with Http.jsonBody
-   -   modelDecoder is used by Http.expectJson to parse a JSON body into a Model
-   --------------------------------------------------------------------------------------------
--}
 
-
+-- Json Encode username and password
 modelEncoder : Model -> JEncode.Value
 modelEncoder model =
     JEncode.object
@@ -122,6 +104,8 @@ modelEncoder model =
           )
         ]
 
+
+-- post for login/register button
 
 loginUser : Model -> Cmd Msg
 loginUser model =
@@ -142,52 +126,45 @@ registerUser model =
 
 
 
-{- -------------------------------------------------------------------------------------------
-   - Update
-   -   JSONResponse updates the entire model with the JSON object given by the server
-   -   ButtonPressed sends a Http Post using a JSON encoded current model
-   --------------------------------------------------------------------------------------------
--}
-
-
+--update
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        EnterName name ->
+        EnterName name -> -- change username on input
             ({model|username=name},Cmd.none)
 
         EnterPassword password ->
             ({model|password=password},Cmd.none)
 
-        GotRegisterResponse result ->
+        GotRegisterResponse result -> -- register cases: userexists, success, and error actually
             case result of
                 Ok "UserExists" ->
                     ( {model|error="user already exists"}, Cmd.none )
 
                 Ok "LoggedOut" ->
                     ( {model|error=""}, Cmd.none)
-                    
+
                 Ok _ ->
-                    ( model, load ("http://localhost:8001/src/restpage.elm") )
+                    ( model, load (rootUrl++"static/userinfo.html") )
 
                 Err error ->
                     ( handleError model error, Cmd.none )
 
-        GotLoginResponse result ->
+        GotLoginResponse result -> -- login cases: loginfailed, success, and error
             case result of
                 Ok "LoginFailed" ->
                     ( { model | error = "incorrect username or password" }, Cmd.none )
 
                 Ok _ ->
-                    ( model, load ("http://localhost:8001/src/restpage.elm") )
+                    ( model, load (rootUrl++"static/userinfo.html") )
 
                 Err error ->
                     ( handleError model error, Cmd.none )
 
-        RegisterUser ->
+        RegisterUser ->  --post
             ( model, registerUser model)
 
-        LoginUser ->
+        LoginUser -> --post
             ( model, loginUser model )
 
 --TODO:change url

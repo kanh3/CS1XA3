@@ -1,6 +1,6 @@
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 import json
 
 from .models import UserInfo1
@@ -25,7 +25,8 @@ def register_user(request):
                 UserInfo1.objects.create_user_info(user)
             except:
                 pass
-        except:# if there is then ask the player to choose another username
+        except:
+            # if there is then ask the player to choose another username
             response='UserExists'
         return HttpResponse(response)
 
@@ -47,6 +48,10 @@ def login_user(request):
         return HttpResponse("LoggedIn")
     else:
         return HttpResponse('LoginFailed')
+
+def logout_user(request):
+    logout(request)
+    return HttpResponse('LoggedOut')
 
 def user_info(request):
     """is the restpage between loginpage and gamepage. shows high record if LoggedIn
@@ -131,7 +136,7 @@ def get_status(request):
             if getuserinfo.resume == False:
                 return HttpResponse('None')
             else:
-                getuserinfo.resume=False #need to be reset to False
+                getuserinfo.resume=False # need to be reset to False
                 getuserinfo.save()
                 return HttpResponse('ResumeGame')
 
